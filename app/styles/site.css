@@ -1,4 +1,4 @@
-.browsehappy {
+﻿.browsehappy {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
@@ -80,4 +80,14 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+.well-sm {
+    color: grey;
+}
+.txt-color{
+    color: grey;
+}
+.error-color{
+	color:red;
 }

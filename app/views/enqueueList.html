@@ -1,0 +1,24 @@
+﻿
+    
+<div class="panel panel-default">
+    <div class="panel-heading"><strong class="txt-color">List of enqueued Aircrafts</strong></div>
+    <table class="table table-striped txt-color">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Time of Enqueue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in queueArray track by $index">
+                <td>{{ item.Type }}</td>
+                <td>{{ item.Size }}</td>
+                <td>{{ item.Time | date:"dd MMMM yyyy  '@' hh:mm:ss:ms" }}</td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+
+
+

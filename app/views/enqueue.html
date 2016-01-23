@@ -1,0 +1,20 @@
+﻿<div class="container">
+    <form role="form" name="enQueueForm" novalidate>
+        <div>
+            <label for="aircraftType" class="txt-color">Aircraft Type</label>
+            <select ng-model="selectedAcType"
+                    ng-options="type for type in aircraft.Type" required></select>
+            <span class="has-error error-color" ng-show="selectedAcType == '' && enQueueForm.$submitted"><strong>Please Select AC Type.</strong></span>
+        </div><br>
+        <div>
+            <label for="aircraftSize" class="txt-color">Aircraft Size</label>
+            <select ng-model="selectedAcSize"
+                    ng-options="size for size in aircraft.Size" required></select>
+            <span class="has-error error-color" ng-show="selectedAcSize == '' && enQueueForm.$submitted"><strong>Please Select AC Size.</strong></span>
+        </div><br>
+        <button type="submit" class="btn txt-color" ng-click="enqueueAircraft.enqueue(selectedAcType, selectedAcSize)">Enqueue</button>
+        <button  class="btn txt-color" ng-click="dequeue()">Dequeue</button><br><br>
+        <div ui-view></div>
+    </form>
+</div>
+
