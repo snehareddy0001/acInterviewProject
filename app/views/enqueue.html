@@ -13,7 +13,7 @@
             <span class="has-error error-color" ng-show="selectedAcSize == '' && enQueueForm.$submitted"><strong>Please Select AC Size.</strong></span>
         </div><br>
         <button type="submit" class="btn txt-color" ng-click="enqueueAircraft.enqueue(selectedAcType, selectedAcSize)">Enqueue</button>
-        <button  class="btn txt-color" ng-click="dequeue()">Dequeue</button><br><br>
+        <button  class="btn txt-color" ng-click="dequeueAircraft.dequeue()">Dequeue</button><br><br>
         <div ui-view></div>
     </form>
 </div>
