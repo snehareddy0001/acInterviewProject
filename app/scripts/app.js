@@ -1,11 +1,8 @@
 'use strict';
 
 // creating a module and injecting ui.router
-var app;
-app = angular.module('acInterviewProjectApp', ['ui.router']);
-
-// creating a config and injecting the providers for routing.
-app.config(['$stateProvider','$locationProvider','$urlRouterProvider',
+angular.module('acInterviewProjectApp', ['ui.router'])
+.config(['$stateProvider','$locationProvider','$urlRouterProvider',
   function ( $stateProvider, $locationProvider, $urlRouterProvider) {
      
       $stateProvider
@@ -24,7 +21,6 @@ app.config(['$stateProvider','$locationProvider','$urlRouterProvider',
       //default route
       $urlRouterProvider.otherwise('/enqueue/enqueueList');
   }]);
-
 
 // function to boot the app when boot button is clicked
 (function (ng) {
