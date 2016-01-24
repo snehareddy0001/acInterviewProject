@@ -3,8 +3,8 @@
 // created enqueueAircraft factory for the app.
 angular.module('acInterviewProjectApp').factory('enqueueAircraft', [ function enqueueAircraft() {
     
-    var passengersArray = [];
-    var cargosArray = [];
+    enqueueAircraft.passengersArray = [];
+    enqueueAircraft.cargosArray = [];
     enqueueAircraft.queueArray = [];
     
     /* enqueueAircraft.enqueue function is called when user clicks on enqueue button.
@@ -13,10 +13,10 @@ angular.module('acInterviewProjectApp').factory('enqueueAircraft', [ function en
      enqueueAircraft.enqueue = function (type, size) {
          if (type !== '' && size !== '') {
              if (type === 'Passenger') {
-                 enqueueAirplane(type, size, passengersArray);
+                 enqueueAirplane(type, size, enqueueAircraft.passengersArray);
              }
              if (type === 'Cargo') {
-                 enqueueAirplane(type, size, cargosArray);
+                 enqueueAirplane(type, size, enqueueAircraft.cargosArray);
              }
          }
 
@@ -24,7 +24,7 @@ angular.module('acInterviewProjectApp').factory('enqueueAircraft', [ function en
         /* compares two elements in passenegersArray, if both are of same size it puts the earliest time element on top of the list
            else it puts the large size of passenger type on top of the list. 
         */
-         passengersArray.sort(function (a, b) {
+         enqueueAircraft.passengersArray.sort(function (a, b) {
 
              if (a.Size.toString() === b.Size.toString()) {
                  return b.Time.getTime() > a.Time.getTime() ? -1 : 1;
@@ -36,7 +36,7 @@ angular.module('acInterviewProjectApp').factory('enqueueAircraft', [ function en
          /* compares two elements in cargosArray, if both are of same size it puts the earliest time element on top of the list
            else it puts the large size of cargo type on top of the list. 
         */
-         cargosArray.sort(function (a, b) {
+         enqueueAircraft.cargosArray.sort(function (a, b) {
              if (a.Size.toString() === b.Size.toString()) {
                  return b.Time.getTime() > a.Time.getTime() ? -1 : 1;
              } else {
@@ -47,8 +47,8 @@ angular.module('acInterviewProjectApp').factory('enqueueAircraft', [ function en
 
 
          enqueueAircraft.queueArray.splice(0,enqueueAircraft.queueArray.length);
-         enqueueAircraft.queueArray.push.apply(enqueueAircraft.queueArray,passengersArray);
-         enqueueAircraft.queueArray.push.apply(enqueueAircraft.queueArray,cargosArray);
+         enqueueAircraft.queueArray.push.apply(enqueueAircraft.queueArray,enqueueAircraft.passengersArray);
+         enqueueAircraft.queueArray.push.apply(enqueueAircraft.queueArray,enqueueAircraft.cargosArray);
      };
 
      //function to load aircrafts in an array.

@@ -9,11 +9,14 @@ angular.module('acInterviewProjectApp').factory('dequeueAircraft', ['enqueueAirc
     */
      dequeueAircraft.dequeue = function () {
          if (typeof enqueueAircraft.queueArray !== 'undefined' && enqueueAircraft.queueArray.length > 0) {
-            var type = enqueueAircraft.queueArray[0].Type;
-            var size = enqueueAircraft.queueArray[0].Size;
-            var time = enqueueAircraft.queueArray[0].Time;
-            enqueueAircraft.queueArray.shift();
-            window.alert('Dequeued Aircraft ' + type + ' ' + size + ', which was enqueued on ' + time);
+            var aircraft = enqueueAircraft.queueArray.shift();
+            if(aircraft.Type === 'Passenger') {
+                enqueueAircraft.passengersArray.shift();
+            }
+            else if(aircraft.Type === 'Cargo') {
+                enqueueAircraft.cargosArray.shift();
+            }
+            window.alert('Dequeued Aircraft ' + aircraft.Type + ' ' + aircraft.Size + ', which was enqueued on ' + aircraft.Time);
         }
         else {
             window.alert('No more Aircrafts to dequeue');
